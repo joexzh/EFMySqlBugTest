@@ -1,0 +1,112 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{2261617D-6D47-4CED-9023-82E9EAE35F00}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>UUT.OrderCenter.PurchaseOrder.Repository</RootNamespace>
+    <AssemblyName>UUT.OrderCenter.PurchaseOrder.Repository</AssemblyName>
+    <TargetFrameworkVersion>v4.5.1</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <DocumentationFile>bin\Release\UUT.OrderCenter.PurchaseOrder.Repository.XML</DocumentationFile>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Staging|AnyCPU'">
+    <OutputPath>bin\Staging\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <DocumentationFile>bin\Release\UUT.OrderCenter.PurchaseOrder.Repository.XML</DocumentationFile>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="EfMapping\OperationLogMap.cs" />
+    <Compile Include="EfMapping\OrderAttachmentMap.cs" />
+    <Compile Include="EfMapping\OrderItemMap.cs" />
+    <Compile Include="EfMapping\OrderMap.cs" />
+    <Compile Include="EfMapping\RefundItemMap.cs" />
+    <Compile Include="EfMapping\RefundMap.cs" />
+    <Compile Include="EfMapping\RequirementItemMap.cs" />
+    <Compile Include="EfMapping\RequirementMap.cs" />
+    <Compile Include="EfMapping\TouristMap.cs" />
+    <Compile Include="OrderContext.cs" />
+    <Compile Include="OrderItemRepository.cs" />
+    <Compile Include="OrderRepository.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RefundRepository.cs" />
+    <Compile Include="Repository.cs" />
+    <Compile Include="RequirementItemRepository.cs" />
+    <Compile Include="RequirementRepository.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\UUT.OrderCenter.PruchaseOrder.Infrastructure.Interface\UUT.OrderCenter.PurchaseOrder.Infrastructure.Interface.csproj">
+      <Project>{3129E586-2EEC-4996-8C1A-0E209356E06B}</Project>
+      <Name>UUT.OrderCenter.PurchaseOrder.Infrastructure.Interface</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\UUT.OrderCenter.PurchaseOrder.Domain\UUT.OrderCenter.PurchaseOrder.Domain.csproj">
+      <Project>{476021FD-0F9E-4C36-A5F5-0AED1FB17CBC}</Project>
+      <Name>UUT.OrderCenter.PurchaseOrder.Domain</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\UUT.OrderCenter.PurchaseOrder.Infrastructure\UUT.OrderCenter.PurchaseOrder.Infrastructure.csproj">
+      <Project>{65ca7dcf-1f90-49b0-b169-17b1564eaef7}</Project>
+      <Name>UUT.OrderCenter.PurchaseOrder.Infrastructure</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\UUT.OrderCenter.PurchaseOrder.Repository.Interface\UUT.OrderCenter.PurchaseOrder.Repository.Interface.csproj">
+      <Project>{EC8F9A1E-800B-4CAD-8CB1-A7B4EDA97E02}</Project>
+      <Name>UUT.OrderCenter.PurchaseOrder.Repository.Interface</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
