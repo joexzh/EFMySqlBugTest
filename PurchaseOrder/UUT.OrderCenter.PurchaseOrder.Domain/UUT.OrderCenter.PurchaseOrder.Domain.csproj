@@ -61,11 +61,12 @@
     <Reference Include="System.Net.Http" />
     <Reference Include="System.Xml" />
     <Reference Include="UUT.Common, Version=1.0.0.30400, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\UUT.Common.1.1.1.100\lib\net451\UUT.Common.dll</HintPath>
-      <Private>True</Private>
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\Lib\UUT.Common.dll</HintPath>
     </Reference>
     <Reference Include="UUT.Component.Operation, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\UUT.Component.Operation.1.0\lib\UUT.Component.Operation.dll</HintPath>
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\Lib\UUT.Component.Operation.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>

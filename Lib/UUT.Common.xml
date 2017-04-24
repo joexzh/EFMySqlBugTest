@@ -1,0 +1,931 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>UUT.Common</name>
+    </assembly>
+    <members>
+        <member name="T:UUT.Common.Attribute.CopyIgnoreAttribute">
+            <summary>
+            Ignored when using ObjectHelper.Copy
+            </summary>
+        </member>
+        <member name="M:UUT.Common.CollectionHelper.IEnumerableExtension.DistinctBy``2(System.Collections.Generic.IEnumerable{``0},System.Func{``0,``1})">
+            <summary>
+            去重扩展
+            按照id和name去重，var query = people.DistinctBy(p => new { p.Id, p.Name });
+            </summary>
+            <typeparam name="TSource"></typeparam>
+            <typeparam name="TKey"></typeparam>
+            <param name="source"></param>
+            <param name="keySelector"></param>
+            <returns></returns>
+        </member>
+        <member name="M:UUT.Common.CollectionHelper.IEnumerableExtension.OpenSafe``1(System.Collections.Generic.IEnumerable{``0})">
+            <summary>
+            确保集合非空
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="list"></param>
+            <returns></returns>
+        </member>
+        <member name="M:UUT.Common.Conversion.DataObjectConvertModel.ToEntity``1(System.Data.DataSet,System.Int32)">
+            <summary>
+            DataSet转换为实体类
+            </summary>
+            <typeparam name="T">实体类</typeparam>
+            <param name="p_DataSet">DataSet</param>
+            <param name="p_TableIndex">待转换数据表索引</param>
+            <returns>实体类</returns>
+        </member>
+        <member name="M:UUT.Common.Conversion.DataObjectConvertModel.ToEntity``1(System.Data.DataRow)">
+            <summary>
+            by:sgc
+            DataSet转换为实体类
+            </summary>
+            <typeparam name="T">实体类</typeparam>
+            <param name="p_Data">DataSet</param>
+            <param name="p_TableIndex">待转换数据表索引</param>
+            <returns>实体类</returns>
+        </member>
+        <member name="M:UUT.Common.Conversion.DataObjectConvertModel.ToEntityList``1(System.Data.DataSet,System.Int32)">
+            <summary>
+            DataSet转换为实体列表
+            </summary>
+            <typeparam name="T">实体类</typeparam>
+            <param name="p_DataSet">DataSet</param>
+            <param name="p_TableIndex">待转换数据表索引</param>
+            <returns>实体类列表</returns>
+        </member>
+        <member name="M:UUT.Common.Conversion.DataObjectConvertModel.ToEntityList``1(System.Data.DataTable)">
+            <summary>
+            DataTable 转换成实体列表
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="dt"></param>
+            <returns></returns>
+        </member>
+        <member name="M:UUT.Common.Conversion.DataObjectConvertModel.ToDataSet``1(System.Collections.Generic.IList{``0})">
+            <summary>
+            IList to DataSet
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="list"></param>
+            <returns></returns>
+        </member>
+        <member name="T:UUT.Common.ImageHelper.DrawImageHelper">
+            <summary>
+            绘图帮助类
+            </summary>
+        </member>
+        <member name="M:UUT.Common.ImageHelper.DrawImageHelper.CreateUserHeaderImg(System.String)">
+            <summary>
+            获取文字头像
+            </summary>
+            <param name="firstMark"></param>
+            <returns></returns>
+        </member>
+        <member name="M:UUT.Common.NumberHelper.NumberExtension.Round(System.Nullable{System.Decimal},System.Int32)">
+            <summary>
+            decimal 四舍五入
+            </summary>
+            <param name="num"></param>
+            <param name="decimals">小数位数</param>
+            <returns></returns>
+        </member>
+        <member name="M:UUT.Common.StringHelper.StringExtension.ToDecimal(System.String)">
+            <summary>
+            string 扩展, 转成decimal
+            </summary>
+            <param name="val"></param>
+            <returns></returns>
+        </member>
+        <member name="M:UUT.Common.StringHelper.StringExtension.ToInt(System.String)">
+            <summary>
+            string 扩展, 转成 int.
+            </summary>
+            <param name="val"></param>
+            <returns></returns>
+        </member>
+        <member name="M:UUT.Common.StringHelper.StringExtension.ToSBC(System.String)">
+            <summary>
+            转全角的函数(SBC case)
+            </summary>
+            <param name="input"></param>
+            <returns></returns>
+        </member>
+        <member name="M:UUT.Common.StringHelper.StringExtension.ToDBC(System.String)">
+            <summary>
+             转半角的函数(SBC case)
+            </summary>
+            <param name="input">输入</param>
+            <returns></returns>
+        </member>
+        <member name="M:UUT.Common.StringHelper.IDCardHelper.CheckIDCard(System.String)">
+            <summary>  
+            验证身份证合理性  
+            </summary>  
+            <param name="Id"></param>  
+            <returns></returns>  
+        </member>
+        <member name="M:UUT.Common.StringHelper.IDCardHelper.CheckIDCard18(System.String)">
+            <summary>  
+            18位身份证号码验证  
+            </summary>  
+        </member>
+        <member name="M:UUT.Common.StringHelper.IDCardHelper.CheckIDCard15(System.String)">
+            <summary>  
+            16位身份证号码验证  
+            </summary>  
+        </member>
+        <member name="M:UUT.Common.StringHelper.IDCardHelper.GetBirthdayByIdentityCardId(System.String,System.Boolean)">
+            <summary>
+            根据身份证获取生日
+            </summary>
+            <param name="cardid">身份证</param>
+            <param name="res">是否有格式(true1990-01-01,false19900101)</param>
+            <returns></returns>
+        </member>
+        <member name="M:UUT.Common.StringHelper.IDCardHelper.GetCardIdInfo(System.String)">
+            <summary>
+            根据身份证获取身份证信息
+            18位身份证
+            0地区代码(1~6位,其中1、2位数为各省级政府的代码，3、4位数为地、市级政府的代码，5、6位数为县、区级政府代码)
+            1出生年月日(7~14位)
+            2顺序号(15~17位单数为男性分配码，双数为女性分配码)
+            3性别
+            
+            15位身份证
+            0地区代码 
+            1出生年份(7~8位年,9~10位为出生月份，11~12位为出生日期 
+            2顺序号(13~15位)，并能够判断性别，奇数为男，偶数为女
+            3性别
+            </summary>
+            <param name="cardId"></param>
+            <returns></returns>
+        </member>
+        <member name="F:UUT.Common.StringHelper.RandomAuthentication.RandomString_09AZ">
+            <summary>
+            0~9 a~z A~Z字符串
+            </summary>
+        </member>
+        <member name="M:UUT.Common.StringHelper.RandomAuthentication.NetxtString(System.Random,System.String,System.Int32,System.Boolean)">
+            <summary>
+            依据指定字符串来生成随机字符串
+            </summary>
+            <param name="random">Random</param>
+            <param name="randomString">指定字符串</param>
+            <param name="size">字符串长度</param>
+            <param name="lowerCase">字符串是小写</param>
+            <returns>随机字符串</returns>
+        </member>
+        <member name="M:UUT.Common.StringHelper.RandomAuthentication.NetxtString(System.Random,System.String,System.Int32)">
+            <summary>
+            依据指定字符串来生成随机字符串
+            </summary>
+            <param name="random">Random</param>
+            <param name="randomString">指定字符串</param>
+            <param name="size">字符串长度</param>
+            <returns>随机字符串</returns>
+        </member>
+        <member name="T:UUT.Common.TrasactionHelper.TransactionHelper">
+            <summary>
+            事务帮助类
+            </summary>
+        </member>
+        <member name="M:UUT.Common.TrasactionHelper.TransactionHelper.CrossThreadScope(System.Action)">
+            <summary>
+            跨线程事务, 仅支持.net451之后的版本
+            <para>支持 action 中包含跨线程的操作.</para>
+            </summary>
+            <param name="action">要运行的方法, 可包含跨线程操作</param>
+        </member>
+        <member name="M:UUT.Common.WebHelper.IPHelper.GetIpRemote(System.Web.HttpRequest)">
+            <summary>
+            获取客户端IP地址
+            </summary>
+            <param name="Request">当前请求对象</param>
+            <returns>客户端IP地址</returns>
+        </member>
+        <member name="T:UUT.Common.WebHelper.UploadEventArgs">
+            <summary>    
+            上传数据参数    
+            </summary>    
+        </member>
+        <member name="P:UUT.Common.WebHelper.UploadEventArgs.BytesSent">
+            <summary>    
+            已发送的字节数    
+            </summary>    
+        </member>
+        <member name="P:UUT.Common.WebHelper.UploadEventArgs.TotalBytes">
+            <summary>    
+            总字节数    
+            </summary>    
+        </member>
+        <member name="T:UUT.Common.WebHelper.DownloadEventArgs">
+            <summary>    
+            下载数据参数    
+            </summary>    
+        </member>
+        <member name="P:UUT.Common.WebHelper.DownloadEventArgs.BytesReceived">
+            <summary>    
+            已接收的字节数    
+            </summary>    
+        </member>
+        <member name="P:UUT.Common.WebHelper.DownloadEventArgs.TotalBytes">
+            <summary>    
+            总字节数    
+            </summary>    
+        </member>
+        <member name="P:UUT.Common.WebHelper.DownloadEventArgs.ReceivedData">
+            <summary>    
+            当前缓冲区接收的数据    
+            </summary>    
+        </member>
+        <member name="M:UUT.Common.WebHelper.WebClient.#ctor">
+            <summary>    
+            创建WebClient的实例    
+            </summary>    
+        </member>
+        <member name="P:UUT.Common.WebHelper.WebClient.BufferSize">
+            <summary>    
+            设置发送和接收的数据缓冲大小    
+            </summary>    
+        </member>
+        <member name="P:UUT.Common.WebHelper.WebClient.ResponseHeaders">
+            <summary>    
+            获取响应头集合    
+            </summary>    
+        </member>
+        <member name="P:UUT.Common.WebHelper.WebClient.RequestHeaders">
+            <summary>    
+            获取请求头集合    
+            </summary>    
+        </member>
+        <member name="P:UUT.Common.WebHelper.WebClient.Proxy">
+            <summary>    
+            获取或设置代理    
+            </summary>    
+        </member>
+        <member name="P:UUT.Common.WebHelper.WebClient.Encoding">
+            <summary>    
+            获取或设置请求与响应的文本编码方式    
+            </summary>    
+        </member>
+        <member name="P:UUT.Common.WebHelper.WebClient.RespHtml">
+            <summary>    
+            获取或设置响应的html代码    
+            </summary>    
+        </member>
+        <member name="P:UUT.Common.WebHelper.WebClient.CookieContainer">
+            <summary>    
+            获取或设置与请求关联的Cookie容器    
+            </summary>    
+        </member>
+        <member name="M:UUT.Common.WebHelper.WebClient.GetHtml(System.String)">
+            <summary>    
+             获取网页源代码    
+            </summary>    
+            <param name="url">网址</param>    
+            <returns></returns>    
+        </member>
+        <member name="M:UUT.Common.WebHelper.WebClient.DownloadFile(System.String,System.String)">
+            <summary>    
+            下载文件    
+            </summary>    
+            <param name="url">文件URL地址</param>    
+            <param name="filename">文件保存完整路径</param>    
+        </member>
+        <member name="M:UUT.Common.WebHelper.WebClient.GetData(System.String)">
+            <summary>    
+            从指定URL下载数据    
+            </summary>    
+            <param name="url">网址</param>    
+            <returns></returns>    
+        </member>
+        <member name="M:UUT.Common.WebHelper.WebClient.Post(System.String,System.String)">
+            <summary>    
+            向指定URL发送文本数据    
+            </summary>    
+            <param name="url">网址</param>    
+            <param name="postData">urlencode编码的文本数据</param>    
+            <returns></returns>    
+        </member>
+        <member name="M:UUT.Common.WebHelper.WebClient.Post(System.String,System.Byte[])">
+            <summary>    
+            向指定URL发送字节数据    
+            </summary>    
+            <param name="url">网址</param>    
+            <param name="postData">发送的字节数组</param>    
+            <returns></returns>    
+        </member>
+        <member name="M:UUT.Common.WebHelper.WebClient.Post(System.String,UUT.Common.WebHelper.MultipartForm)">
+            <summary>    
+            向指定网址发送mulitpart编码的数据    
+            </summary>    
+            <param name="url">网址</param>    
+            <param name="mulitpartForm">mulitpart form data</param>    
+            <returns></returns>    
+        </member>
+        <member name="M:UUT.Common.WebHelper.WebClient.GetData(System.Net.HttpWebRequest)">
+            <summary>    
+            读取请求返回的数据    
+            </summary>    
+            <param name="request">请求对象</param>    
+            <returns></returns>    
+        </member>
+        <member name="M:UUT.Common.WebHelper.WebClient.PostData(System.Net.HttpWebRequest,System.Byte[])">
+            <summary>    
+            发送请求数据    
+            </summary>    
+            <param name="request">请求对象</param>    
+            <param name="postData">请求发送的字节数组</param>    
+        </member>
+        <member name="M:UUT.Common.WebHelper.WebClient.CreateRequest(System.String,System.String)">
+            <summary>    
+            创建HTTP请求    
+            </summary>    
+            <param name="url">URL地址</param>    
+            <returns></returns>    
+        </member>
+        <member name="M:UUT.Common.WebHelper.WebClient.SaveCookiesToDisk">
+            <summary>    
+            将Cookie保存到磁盘    
+            </summary>    
+        </member>
+        <member name="M:UUT.Common.WebHelper.WebClient.LoadCookiesFromDisk">
+            <summary>    
+            从磁盘加载Cookie    
+            </summary>    
+        </member>
+        <member name="T:UUT.Common.WebHelper.MultipartForm">
+            <summary>    
+            对文件和文本数据进行Multipart形式的编码    
+            </summary>    
+        </member>
+        <member name="P:UUT.Common.WebHelper.MultipartForm.FormData">
+            <summary>    
+            获取编码后的字节数组    
+            </summary>    
+        </member>
+        <member name="P:UUT.Common.WebHelper.MultipartForm.ContentType">
+            <summary>    
+            获取此编码内容的类型    
+            </summary>    
+        </member>
+        <member name="P:UUT.Common.WebHelper.MultipartForm.StringEncoding">
+            <summary>    
+            获取或设置对字符串采用的编码类型    
+            </summary>    
+        </member>
+        <member name="M:UUT.Common.WebHelper.MultipartForm.#ctor">
+            <summary>    
+            实例化    
+            </summary>    
+        </member>
+        <member name="M:UUT.Common.WebHelper.MultipartForm.AddFlie(System.String,System.String)">
+            <summary>    
+            添加一个文件    
+            </summary>    
+            <param name="name">文件域名称</param>    
+            <param name="filename">文件的完整路径</param>    
+        </member>
+        <member name="M:UUT.Common.WebHelper.MultipartForm.AddFlie(System.String,System.String,System.Byte[],System.Int32)">
+            <summary>    
+            添加一个文件    
+            </summary>    
+            <param name="name">文件域名称</param>    
+            <param name="filename">文件名</param>    
+            <param name="fileData">文件二进制数据</param>    
+            <param name="dataLength">二进制数据大小</param>    
+        </member>
+        <member name="M:UUT.Common.WebHelper.MultipartForm.AddString(System.String,System.String)">
+            <summary>    
+            添加字符串    
+            </summary>    
+            <param name="name">文本域名称</param>    
+            <param name="value">文本值</param>    
+        </member>
+        <member name="M:UUT.Common.WebHelper.MultipartForm.GetContentType(System.String)">
+            <summary>    
+            从注册表获取文件类型    
+            </summary>    
+            <param name="filename">包含扩展名的文件名</param>    
+            <returns>如：application/stream</returns>    
+        </member>
+        <member name="M:UUT.Common.WebHelper.StaticHtml.Nei_Create(System.String,System.String)">
+            <summary>
+            生成静态页面,生成位置是本项目下
+            </summary>
+            <param name="strURL">请求的URL</param>
+            <param name="strRelPath">创建的路径及文件名,路径为相对路径</param>
+        </member>
+        <member name="M:UUT.Common.WebHelper.StaticHtml.Wai_Create(System.String,System.String,System.String)">
+            <summary>
+            生成静态页面,生成位置不在本项目下
+            </summary>
+            <param name="strURL">请求的URL</param>
+            <param name="strRelPath">创建的路径及文件名，路径为绝对路径</param>
+        </member>
+        <member name="M:UUT.Common.Encryption.Md5Helper.md5Digest(System.String,System.String)">
+            <summary>
+            计算MD5摘要
+            </summary>
+            <param name="str">字符串</param>
+            <param name="charset">编码</param>
+            <returns>MD5摘要</returns>
+        </member>
+        <member name="M:UUT.Common.Encryption.AES.MD5Encoding(System.Byte[])">
+            <summary>
+                MD5 加密字符串
+            </summary>
+            <param name="rawPass">源字符串</param>
+            <returns>加密后字符串</returns>
+        </member>
+        <member name="M:UUT.Common.Encryption.AES.MD5Encoding(System.String)">
+            <summary>
+                MD5 加密字符串
+            </summary>
+            <param name="rawPass">源字符串</param>
+            <returns>加密后字符串</returns>
+        </member>
+        <member name="M:UUT.Common.Encryption.AES.MD5Encoding(System.String,System.Object)">
+            <summary>
+                MD5盐值加密
+            </summary>
+            <param name="rawPass">源字符串</param>
+            <param name="salt">盐值</param>
+            <returns>加密后字符串</returns>
+        </member>
+        <member name="T:UUT.Common.Encryption.DESEncrypt">
+            <summary>
+                DES加密/解密类。
+                Copyright (C) Maticsoft
+            </summary>
+        </member>
+        <member name="M:UUT.Common.Encryption.DESEncrypt.Encrypt(System.String)">
+            <summary>
+                加密
+            </summary>
+            <param name="Text"></param>
+            <returns></returns>
+        </member>
+        <member name="M:UUT.Common.Encryption.DESEncrypt.Encrypt(System.String,System.String)">
+            <summary>
+                加密数据
+            </summary>
+            <param name="Text"></param>
+            <param name="sKey"></param>
+            <returns></returns>
+        </member>
+        <member name="M:UUT.Common.Encryption.DESEncrypt.Decrypt(System.String)">
+            <summary>
+                解密
+            </summary>
+            <param name="Text"></param>
+            <returns></returns>
+        </member>
+        <member name="M:UUT.Common.Encryption.DESEncrypt.Decrypt(System.String,System.String)">
+            <summary>
+                解密数据
+            </summary>
+            <param name="Text"></param>
+            <param name="sKey"></param>
+            <returns></returns>
+        </member>
+        <member name="T:UUT.Common.Encryption.DEncrypt">
+            <summary>
+            Encrypt 的摘要说明。
+            Copyright (C) Maticsoft
+            </summary>
+        </member>
+        <member name="M:UUT.Common.Encryption.DEncrypt.Encrypt(System.String)">
+            <summary>
+            使用缺省密钥字符串加密string
+            </summary>
+            <param name="original">明文</param>
+            <returns>密文</returns>
+        </member>
+        <member name="M:UUT.Common.Encryption.DEncrypt.Decrypt(System.String)">
+            <summary>
+            使用缺省密钥字符串解密string
+            </summary>
+            <param name="original">密文</param>
+            <returns>明文</returns>
+        </member>
+        <member name="M:UUT.Common.Encryption.DEncrypt.Encrypt(System.String,System.String)">
+            <summary>
+            使用给定密钥字符串加密string
+            </summary>
+            <param name="original">原始文字</param>
+            <param name="key">密钥</param>
+            <returns>密文</returns>
+        </member>
+        <member name="M:UUT.Common.Encryption.DEncrypt.Decrypt(System.String,System.String)">
+            <summary>
+            使用给定密钥字符串解密string
+            </summary>
+            <param name="original">密文</param>
+            <param name="key">密钥</param>
+            <returns>明文</returns>
+        </member>
+        <member name="M:UUT.Common.Encryption.DEncrypt.Decrypt(System.String,System.String,System.Text.Encoding)">
+            <summary>
+            使用给定密钥字符串解密string,返回指定编码方式明文
+            </summary>
+            <param name="encrypted">密文</param>
+            <param name="key">密钥</param>
+            <param name="encoding">字符编码方案</param>
+            <returns>明文</returns>
+        </member>
+        <member name="M:UUT.Common.Encryption.DEncrypt.Decrypt(System.Byte[])">
+            <summary>
+            使用缺省密钥字符串解密byte[]
+            </summary>
+            <param name="encrypted">密文</param>
+            <param name="key">密钥</param>
+            <returns>明文</returns>
+        </member>
+        <member name="M:UUT.Common.Encryption.DEncrypt.Encrypt(System.Byte[])">
+            <summary>
+            使用缺省密钥字符串加密
+            </summary>
+            <param name="original">原始数据</param>
+            <param name="key">密钥</param>
+            <returns>密文</returns>
+        </member>
+        <member name="M:UUT.Common.Encryption.DEncrypt.MakeMD5(System.Byte[])">
+            <summary>
+            生成MD5摘要
+            </summary>
+            <param name="original">数据源</param>
+            <returns>摘要</returns>
+        </member>
+        <member name="M:UUT.Common.Encryption.DEncrypt.Encrypt(System.Byte[],System.Byte[])">
+            <summary>
+            使用给定密钥加密
+            </summary>
+            <param name="original">明文</param>
+            <param name="key">密钥</param>
+            <returns>密文</returns>
+        </member>
+        <member name="M:UUT.Common.Encryption.DEncrypt.Decrypt(System.Byte[],System.Byte[])">
+            <summary>
+            使用给定密钥解密数据
+            </summary>
+            <param name="encrypted">密文</param>
+            <param name="key">密钥</param>
+            <returns>明文</returns>
+        </member>
+        <member name="T:UUT.Common.Encryption.HashEncode">
+            <summary>
+            得到随机安全码（哈希加密）。
+            </summary>
+        </member>
+        <member name="M:UUT.Common.Encryption.HashEncode.GetSecurity">
+            <summary>
+            得到随机哈希加密字符串
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:UUT.Common.Encryption.HashEncode.GetRandomValue">
+            <summary>
+            得到一个随机数值
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:UUT.Common.Encryption.HashEncode.HashEncoding(System.String)">
+            <summary>
+            哈希加密一个字符串
+            </summary>
+            <param name="Security"></param>
+            <returns></returns>
+        </member>
+        <member name="T:UUT.Common.Encryption.RSACryption">
+            <summary> 
+            RSA加密解密及RSA签名和验证
+            </summary> 
+        </member>
+        <member name="M:UUT.Common.Encryption.RSACryption.RSAKey(System.String@,System.String@)">
+            <summary>
+            RSA 的密钥产生 产生私钥 和公钥 
+            </summary>
+            <param name="xmlKeys"></param>
+            <param name="xmlPublicKey"></param>
+        </member>
+        <member name="M:UUT.Common.Cache.Reflector.ReflectorCache.CachedProperties``1(``0)">
+            <summary>
+            Cache PropertyInfos for instance<see cref="!:&lt;T&gt;"/>
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="t"></param>
+            <returns></returns>
+        </member>
+        <member name="M:UUT.Common.Cache.Reflector.ReflectorCache.CachedProperties``1">
+            <summary>
+            Cache PropertyInfos for <see cref="!:&lt;T&gt;"/>
+            </summary>
+            <typeparam name="T"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:UUT.Common.Cache.Reflector.ReflectorCache.CachedProperties(System.Type)">
+            <summary>
+            Cache PropertyInfos for Type/>
+            </summary>
+            <param name="type"></param>
+            <returns></returns>
+        </member>
+        <member name="M:UUT.Common.Cache.Reflector.ReflectorHelper.FilteredProperties(System.Reflection.PropertyInfo[],System.Func{System.Reflection.PropertyInfo,System.Boolean})">
+            <summary>
+            Get filtered PropertyInfos by specific predicate.
+            </summary>
+            <param name="props">PropertyInfos</param>
+            <param name="func">PropertyInfo predicate</param>
+            <returns></returns>
+        </member>
+        <member name="T:UUT.Common.Cache.MyCache.GenericPool`1">
+            <summary>
+            
+            </summary>
+            <typeparam name="T"></typeparam>
+        </member>
+        <member name="T:UUT.Common.Cache.DataCache">
+            <summary>
+            缓存相关的操作类
+            </summary>
+        </member>
+        <member name="M:UUT.Common.Cache.DataCache.GetCache(System.String)">
+            <summary>
+            获取当前应用程序指定CacheKey的Cache值
+            </summary>
+            <param name="CacheKey"></param>
+            <returns></returns>
+        </member>
+        <member name="M:UUT.Common.Cache.DataCache.SetCache(System.String,System.Object)">
+            <summary>
+            设置当前应用程序指定CacheKey的Cache值
+            </summary>
+            <param name="CacheKey"></param>
+            <param name="objObject"></param>
+        </member>
+        <member name="M:UUT.Common.Cache.DataCache.SetCache(System.String,System.Object,System.DateTime,System.TimeSpan)">
+            <summary>
+            设置当前应用程序指定CacheKey的Cache值
+            </summary>
+            <param name="CacheKey"></param>
+            <param name="objObject"></param>
+        </member>
+        <member name="M:UUT.Common.EncodingHelper.HtmlEncoding.HtmlPostEncode(System.String)">
+            <summary>
+            For encoding html string post data
+            </summary>
+            <param name="origin"></param>
+            <returns></returns>
+        </member>
+        <member name="T:UUT.Common.EnumHelper.EnumUtil">
+            <summary>
+            枚举公共类
+            </summary>
+        </member>
+        <member name="M:UUT.Common.EnumHelper.EnumUtil.EnumToDictionary(System.Type,System.Boolean)">
+            <summary>
+            将枚举转换成<see cref="!:Dictionary&lt;int, string&gt;"/>;
+            Dictionary中，key为枚举项对应的int值；value为：若定义了EnumShowName属性，则取它，否则取name
+            </summary>
+            <param name="enumType">枚举类型</param>
+            <param name="needDescription">是否需要显示描述，True：优先显示描述，False：仅显示值</param>
+            <returns></returns>
+        </member>
+        <member name="M:UUT.Common.EnumHelper.EnumUtil.EnumToDictionaryWithStringKey(System.Type)">
+            <summary>
+            将枚举转换成 Dictionary{string, string}
+            key：枚举值，value：优先枚举描述（若无描述，则为枚举值）
+            </summary>
+            <param name="enumType"></param>
+            <returns></returns>
+        </member>
+        <member name="M:UUT.Common.EnumHelper.EnumUtil.DisplayName``1(``0)">
+            <summary>
+            Get description value of enum instance.
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="enumInstance"></param>
+            <returns>null if not a enum instance</returns>
+        </member>
+        <member name="M:UUT.Common.EnumHelper.EnumUtil.GetEnumFromString``1(System.String)">
+            <summary>
+            返回枚举值
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="value"></param>
+            <returns></returns>
+        </member>
+        <member name="M:UUT.Common.EnumHelper.EnumUtil.GetFlags``1(``0)">
+            <summary>
+            返回枚举实例包含的所有枚举值
+            <para>枚举类型必须标记为 Flags</para>
+            </summary>
+            <typeparam name="T">枚举类型</typeparam>
+            <param name="value">枚举实例</param>
+            <returns></returns>
+        </member>
+        <member name="M:UUT.Common.ObjectHelper.Copy.CopyModel``2(``0,``1)">
+            <summary>
+            Copy all properties from src to trg
+            </summary>
+            <typeparam name="TSource"></typeparam>
+            <typeparam name="TTarget"></typeparam>
+            <param name="src"></param>
+            <param name="trg"></param>
+        </member>
+        <member name="T:UUT.Common.FileHelper.ConfigHelper">
+            <summary>
+            web.config操作类
+            </summary>
+        </member>
+        <member name="M:UUT.Common.FileHelper.ConfigHelper.GetConfigString(System.String)">
+            <summary>
+            得到AppSettings中的配置字符串信息
+            </summary>
+            <param name="key"></param>
+            <returns></returns>
+        </member>
+        <member name="M:UUT.Common.FileHelper.ConfigHelper.GetConfigBool(System.String)">
+            <summary>
+            得到AppSettings中的配置Bool信息
+            </summary>
+            <param name="key"></param>
+            <returns></returns>
+        </member>
+        <member name="M:UUT.Common.FileHelper.ConfigHelper.GetConfigDecimal(System.String)">
+            <summary>
+            得到AppSettings中的配置Decimal信息
+            </summary>
+            <param name="key"></param>
+            <returns></returns>
+        </member>
+        <member name="M:UUT.Common.FileHelper.ConfigHelper.GetConfigInt(System.String)">
+            <summary>
+            得到AppSettings中的配置int信息
+            </summary>
+            <param name="key"></param>
+            <returns></returns>
+        </member>
+        <member name="T:UUT.Common.FileHelper.INIFile">
+            <summary>
+            INI文件读写类。
+            Copyright (C) Maticsoft
+            </summary>
+        </member>
+        <member name="M:UUT.Common.FileHelper.INIFile.IniWriteValue(System.String,System.String,System.String)">
+            <summary>
+            写INI文件
+            </summary>
+            <param name="Section"></param>
+            <param name="Key"></param>
+            <param name="Value"></param>
+        </member>
+        <member name="M:UUT.Common.FileHelper.INIFile.IniReadValue(System.String,System.String)">
+            <summary>
+            读取INI文件
+            </summary>
+            <param name="Section"></param>
+            <param name="Key"></param>
+            <returns></returns>
+        </member>
+        <member name="M:UUT.Common.FileHelper.INIFile.ClearAllSection">
+            <summary>
+            删除ini文件下所有段落
+            </summary>
+        </member>
+        <member name="M:UUT.Common.FileHelper.INIFile.ClearSection(System.String)">
+            <summary>
+            删除ini文件下personal段落下的所有键
+            </summary>
+            <param name="Section"></param>
+        </member>
+        <member name="T:UUT.Common.Validation.DataValidator">
+            <summary>
+            数据验证
+            </summary>
+        </member>
+        <member name="M:UUT.Common.Validation.DataValidator.FetchInputDigit(System.Web.HttpRequest,System.String,System.Int32)">
+            <summary>
+            检查Request查询字符串的键值，是否是数字，最大长度限制
+            </summary>
+            <param name="req">Request</param>
+            <param name="inputKey">Request的键值</param>
+            <param name="maxLen">最大长度</param>
+            <returns>返回Request查询字符串</returns>
+        </member>
+        <member name="M:UUT.Common.Validation.DataValidator.IsNumber(System.String)">
+            <summary>
+            是否数字字符串
+            </summary>
+            <param name="inputData">输入字符串</param>
+            <returns></returns>
+        </member>
+        <member name="M:UUT.Common.Validation.DataValidator.IsNumberSign(System.String)">
+            <summary>
+            是否数字字符串 可带正负号
+            </summary>
+            <param name="inputData">输入字符串</param>
+            <returns></returns>
+        </member>
+        <member name="M:UUT.Common.Validation.DataValidator.IsDecimal(System.String)">
+            <summary>
+            是否是浮点数
+            </summary>
+            <param name="inputData">输入字符串</param>
+            <returns></returns>
+        </member>
+        <member name="M:UUT.Common.Validation.DataValidator.IsDecimalSign(System.String)">
+            <summary>
+            是否是浮点数 可带正负号
+            </summary>
+            <param name="inputData">输入字符串</param>
+            <returns></returns>
+        </member>
+        <member name="M:UUT.Common.Validation.DataValidator.IsHasCHZN(System.String)">
+            <summary>
+            检测是否有中文字符
+            </summary>
+            <param name="inputData"></param>
+            <returns></returns>
+        </member>
+        <member name="M:UUT.Common.Validation.DataValidator.IsEmail(System.String)">
+            <summary>
+            是否是浮点数 可带正负号
+            </summary>
+            <param name="inputData">输入字符串</param>
+            <returns></returns>
+        </member>
+        <member name="M:UUT.Common.Validation.DataValidator.IsDateTime(System.String)">
+            <summary>
+            日期格式字符串判断
+            </summary>
+            <param name="str"></param>
+            <returns></returns>
+        </member>
+        <member name="M:UUT.Common.Validation.DataValidator.SqlText(System.String,System.Int32)">
+            <summary>
+            检查字符串最大长度，返回指定长度的串
+            </summary>
+            <param name="sqlInput">输入字符串</param>
+            <param name="maxLength">最大长度</param>
+            <returns></returns>			
+        </member>
+        <member name="M:UUT.Common.Validation.DataValidator.HtmlEncode(System.String)">
+            <summary>
+            字符串编码
+            </summary>
+            <param name="inputData"></param>
+            <returns></returns>
+        </member>
+        <member name="M:UUT.Common.Validation.DataValidator.SetLabel(System.Web.UI.WebControls.Label,System.String)">
+            <summary>
+            设置Label显示Encode的字符串
+            </summary>
+            <param name="lbl"></param>
+            <param name="txtInput"></param>
+        </member>
+        <member name="M:UUT.Common.Validation.DataValidator.Encode(System.String)">
+            <summary>
+            转换成 HTML code
+            </summary>
+            <param name="str">string</param>
+            <returns>string</returns>
+        </member>
+        <member name="M:UUT.Common.Validation.DataValidator.Decode(System.String)">
+             <summary>
+            解析html成 普通文本
+             </summary>
+             <param name="str">string</param>
+             <returns>string</returns>
+        </member>
+        <member name="M:UUT.Common.Validation.DataValidator.isContainSpecChar(System.String)">
+            <summary>
+            检查输入的参数是不是某些定义好的特殊字符：这个方法目前用于密码输入的安全检查
+            </summary>
+        </member>
+        <member name="M:UUT.Common.DateTimeHelper.DateTimeParser.SecondToMinute(System.Int32)">
+            <summary>
+            把秒转换成分钟
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:UUT.Common.DateTimeHelper.DateTimeParser.GetMonthLastDate(System.Int32,System.Int32)">
+            <summary>
+            返回某年某月最后一天
+            </summary>
+            <param name="year">年份</param>
+            <param name="month">月份</param>
+            <returns>日</returns>
+        </member>
+        <member name="M:UUT.Common.DateTimeHelper.DateTimeParser.ToChineseShortDateString(System.Nullable{System.DateTime})">
+            <summary>
+            convert to chinese date (eg. 2016年6月2日)
+            </summary>
+            <returns></returns>
+        </member>
+    </members>
+</doc>
