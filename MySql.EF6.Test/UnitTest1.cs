@@ -7,13 +7,13 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 using UUT.OrderCenter.PurchaseOrder.Domain.Root;
 using UUT.OrderCenter.PurchaseOrder.Repository;
 
-namespace UnitTestProject1
+namespace MySql.EF6.Test
 {
     [TestClass]
     public class UnitTest1
     {
         [TestMethod]
-        public async Task TestMethod1Async()
+        public async Task ef6_test()
         {
             var ctx = new OrderContext();
             var orderRepo = new OrderRepository(ctx);

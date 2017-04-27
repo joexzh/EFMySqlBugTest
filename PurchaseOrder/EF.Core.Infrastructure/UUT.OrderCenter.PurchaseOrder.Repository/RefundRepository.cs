@@ -1,7 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 using UUT.OrderCenter.PurchaseOrder.InfrastructureCore.InterfaceCore;
 using UUT.OrderCenter.PurchaseOrder.Domain.Entity;
@@ -9,7 +7,7 @@ using UUT.OrderCenter.PurchaseOrder.Domain.Root;
 using UUT.OrderCenter.PurchaseOrder.Repository.Interface;
 using Microsoft.EntityFrameworkCore;
 
-namespace UUT.OrderCenter.PurchaseOrder.Repository
+namespace UUT.OrderCenter.PurchaseOrder.RepositoryCore
 {
     public class RefundRepository : Repository<Refund>, IRefundRepository
     {

@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 using UUT.Component.Operation;
 using UUT.OrderCenter.PurchaseOrder.Domain.Root;
 using UUT.OrderCenter.PurchaseOrder.Domain.ValueObject;
+using UUT.OrderCenter.PurchaseOrder.Domain.RelationTable;
 
 namespace UUT.OrderCenter.PurchaseOrder.Domain.Entity
 {
@@ -58,7 +59,7 @@ namespace UUT.OrderCenter.PurchaseOrder.Domain.Entity
         /// 电子邮箱地址
         /// </summary>
         public string Email { get; set; }
-
+        
         /// <summary>
         /// 更新
         /// </summary>

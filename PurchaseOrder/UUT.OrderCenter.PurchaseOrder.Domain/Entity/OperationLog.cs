@@ -27,5 +27,16 @@ namespace UUT.OrderCenter.PurchaseOrder.Domain.Entity
         /// </summary>
         public User OperatedUser { get; set; }
 
+#if EFCore
+        public long OperatedUserId { get => OperatedUser.Id; set => OperatedUser.Id = value; }
+
+        public string OperatedUserFullName { get => OperatedUser.FullName; set => OperatedUser.FullName = value; }
+
+        public string OperatedUserPhone { get => OperatedUser.Phone; set => OperatedUser.Phone = value; }
+
+        public long? OperatedUserAgencyId { get => OperatedUser.AgencyId; set => OperatedUser.AgencyId = value; }
+
+        public string OperatedUserAgencyName { get => OperatedUser.AgencyName; set => OperatedUser.AgencyName = value; }
+#endif
     }
 }

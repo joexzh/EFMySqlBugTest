@@ -11,6 +11,7 @@ using UUT.OrderCenter.PurchaseOrder.Domain.ValueObject;
 using UUT.OrderCenter.PurchaseOrder.Domain.ValueObject.RefundState;
 using UUT.OrderCenter.PurchaseOrder.Domain.ValueObject.RefundState.Impl;
 using static UUT.OrderCenter.PurchaseOrder.Infrastructure.Config;
+using UUT.OrderCenter.PurchaseOrder.Domain.RelationTable;
 
 namespace UUT.OrderCenter.PurchaseOrder.Domain.Root
 {
@@ -76,6 +77,18 @@ namespace UUT.OrderCenter.PurchaseOrder.Domain.Root
         /// </summary>
         public User UserCreated { get; private set; } = new User();
 
+#if EFCore
+        public long UserCreatedId { get => UserCreated.Id; set => UserCreated.Id = value; }
+
+        public string UserCreatedFullName { get => UserCreated.FullName; set => UserCreated.FullName = value; }
+
+        public string UserCreatedPhone { get => UserCreated.Phone; set => UserCreated.Phone = value; }
+
+        public long? UserCreatedAgencyId { get => UserCreated.AgencyId; set => UserCreated.AgencyId = value; }
+
+        public string UserCreatedAgencyName { get => UserCreated.AgencyName; set => UserCreated.AgencyName = value; }
+#endif
+
         /// <summary>
         /// 创建时间
         /// </summary>
@@ -105,14 +118,18 @@ namespace UUT.OrderCenter.PurchaseOrder.Domain.Root
         }
 
         /// <summary>
+        /// 退货项
+        /// </summary>
+        public virtual ICollection<RefundItem> RefundItems { get; set; } = new Collection<RefundItem>();
+
+        /// <summary>
         /// 退团游客
         /// </summary>
         public virtual ICollection<Tourist> Tourists { get; set; } = new Collection<Tourist>();
 
-        /// <summary>
-        /// 退货项
-        /// </summary>
-        public virtual ICollection<RefundItem> RefundItems { get; set; } = new Collection<RefundItem>();
+#if EFCore
+        public ICollection<RefundTourist> RefundTourists { get; set; } = new Collection<RefundTourist>();
+#endif
 
         /// <summary>
         /// 要从退货单中删除的游客, just for EntityFramework remove
@@ -150,7 +167,7 @@ namespace UUT.OrderCenter.PurchaseOrder.Domain.Root
                     RefundBusinessState.Done |
                     RefundBusinessState.Submitted |
                     RefundBusinessState.WaitingForBuyer2ConfirmInvalidation |
-                    RefundBusinessState.WaitingForSeller2ConfirmInvalidation | 
+                    RefundBusinessState.WaitingForSeller2ConfirmInvalidation |
                     RefundBusinessState.BuyerDealing;
             }
         }
@@ -221,7 +238,7 @@ namespace UUT.OrderCenter.PurchaseOrder.Domain.Root
                 _removedRefundItems.Add(item);
             }
         }
-
+        
         /// <summary>
         /// 增加要退的游客
         /// </summary>

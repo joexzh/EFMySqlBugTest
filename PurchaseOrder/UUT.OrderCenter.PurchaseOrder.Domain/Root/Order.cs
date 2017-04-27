@@ -113,6 +113,16 @@ namespace UUT.OrderCenter.PurchaseOrder.Domain.Root
         /// </summary>
         public OrderMoney OrderMoney { get; private set; } = new OrderMoney();
 
+#if EFCore
+        public decimal OrderMoneyDealAmount { get => OrderMoney.DealAmount; set => OrderMoney.DealAmount = value; }
+
+        public string OrderMoneyDealCurrencyCode { get=> OrderMoney.DealCurrencyCode; set => OrderMoney.DealCurrencyCode = value; }
+
+        public decimal OrderMoneyCurrencyRate { get => OrderMoney.CurrencyRate; set => OrderMoney.CurrencyRate = value; }
+
+        public string OrderMoneyBaseCurrencyCode { get => OrderMoney.BaseCurrencyCode; set => OrderMoney.BaseCurrencyCode = value; }
+#endif
+
         /// <summary>
         /// 实际订单订单金额, 币种为成交货币 (除去有效退货单)
         /// </summary>
@@ -141,51 +151,147 @@ namespace UUT.OrderCenter.PurchaseOrder.Domain.Root
         /// 备注
         /// </summary>
         public string Note { get; set; }
+
         /// <summary>
         /// 创建人信息
         /// </summary>
         public User UserCreated { get; set; } = new User();
+
+#if EFCore
+        public long UserCreatedId { get => UserCreated.Id; set => UserCreated.Id = value; }
+
+        public string UserCreatedFullName { get => UserCreated.FullName; set => UserCreated.FullName = value; }
+
+        public string UserCreatedPhone { get => UserCreated.Phone; set => UserCreated.Phone = value; }
+
+        public long? UserCreatedAgencyId { get => UserCreated.AgencyId; set => UserCreated.AgencyId = value; }
+
+        public string UserCreatedAgencyName { get => UserCreated.AgencyName; set => UserCreated.AgencyName = value; }
+#endif
+
         /// <summary>
         /// 创建时间
         /// </summary>
         public DateTime TimeCreated { get; private set; } = DateTime.Now;
+
         /// <summary>
         /// 卖家信息
         /// </summary>
         public Seller Seller { get; set; } = new Seller();
+
+#if EFCore
+        public SellerOnlineType SellerOnlineType { get => Seller.OnlineType; set => Seller.OnlineType = value; }
+
+        public SellerType SellerType { get => Seller.SellerType; set => Seller.SellerType = value; }
+
+        public long SellerId { get => Seller.SellerId; set => Seller.SellerId = value; }
+
+        public string SellerName { get => Seller.SellerName; set => Seller.SellerName = value; }
+
+        public long? SellerAgencyRelationId { get => Seller.AgencyRelationId; set => Seller.AgencyRelationId = value; }
+#endif
+
         /// <summary>
         /// 卖家联系信息
         /// </summary>
         public Contact SellerContact { get; set; } = new Contact();
+
+#if EFCore
+        public string SellerContactFullName { get => SellerContact.FullName; set => SellerContact.FullName = value; }
+
+        public string SellerContactPhone { get => SellerContact.Phone; set => SellerContact.Phone = value; }
+
+        public string SellerContactEmail { get => SellerContact.Email; set => SellerContact.Email = value; }
+
+        public string SellerContactQQ { get => SellerContact.QQ; set => SellerContact.QQ = value; }
+
+        public string SellerContactWechat { get => SellerContact.Wechat; set => SellerContact.Wechat = value; }
+
+        public string SellerContactWechatQrImg { get => SellerContact.WechatQrImg; set => SellerContact.WechatQrImg = value; }
+#endif
 
         /// <summary>
         /// 买家联系信息
         /// </summary>
         public Contact BuyerContact { get; set; } = new Contact();
 
+#if EFCore
+        public string BuyerContactFullName { get => BuyerContact.FullName; set => BuyerContact.FullName = value; }
+
+        public string BuyerContactPhone { get => BuyerContact.Phone; set => BuyerContact.Phone = value; }
+
+        public string BuyerContactEmail { get => BuyerContact.Email; set => BuyerContact.Email = value; }
+
+        public string BuyerContactQQ { get => BuyerContact.QQ; set => BuyerContact.QQ = value; }
+
+        public string BuyerContactWechat { get => BuyerContact.Wechat; set => BuyerContact.Wechat = value; }
+
+        public string BuyerContactWechatQrImg { get => BuyerContact.WechatQrImg; set => BuyerContact.WechatQrImg = value; }
+#endif
+
         /// <summary>
         /// 结算
         /// </summary>
         public Settlement Settlement { get; set; } = new Settlement();
 
+#if EFCore
+        public SettlementSchemeType SettlementSchemeType { get => Settlement.SettlementSchemeType; set => Settlement.SettlementSchemeType = value; }
+
+        public SettlementType SettlementType { get => Settlement.SettlementType; set => Settlement.SettlementType = value; }
+
+        public int? SettlementDay { get => Settlement.Day; set => Settlement.Day = value; }
+
+        public Weekday? SettlementWeekday { get => Settlement.Weekday; set => Settlement.Weekday = value; }
+
+        public string SettlementItemsJson { get => Settlement.SettlementItems.SerializedValue; set => Settlement.SettlementItems.SerializedValue = value; }
+
+        public decimal? SettlementDeposit { get => Settlement.Deposit; set => Settlement.Deposit = value; }
+
+        public string SettlementDepositCurrencyCode { get => Settlement.DepositCurrencyCode; set => Settlement.DepositCurrencyCode = value; }
+#endif
+
         /// <summary>
         /// 发票信息
         /// </summary>
         public Invoice Invoice { get; set; } = new Invoice();
+
+#if EFCore
+        public InvoiceType InvoiceType { get => Invoice.InvoiceType; set => Invoice.InvoiceType = value; }
+
+        public string InvoiceTitle { get => Invoice.Title; set => Invoice.Title = value; }
+
+        public string InvoiceNote { get => Invoice.Note; set => Invoice.Note = value; }
+#endif
+
         /// <summary>
         /// 配送信息
         /// </summary>
         public Shipping Shipping { get; set; } = new Shipping();
+
+#if EFCore
+        public ShippingType ShippingType { get => Shipping.ShippingType; set => Shipping.ShippingType = value; }
+
+        public string ShippingAddress { get => Shipping.Address; set => Shipping.Address = value; }
+#endif
+
         /// <summary>
         /// 优惠
         /// </summary>
         public PriceConcession PriceConcession { get; set; } = new PriceConcession();
 
+#if EFCore
+        public PriceConcessionType PriceConcessionType { get => PriceConcession.ConcessionType; set => PriceConcession.ConcessionType = value; }
+
+        public string PriceConcessionName { get => PriceConcession.ConcessionName; set => PriceConcession.ConcessionName = value; }
+
+        public decimal PriceConcessionNumber { get => PriceConcession.ConcessionNumber; set => PriceConcession.ConcessionNumber = value; }
+#endif
+
         /// <summary>
         /// 商城订单id
         /// </summary>
         public string MallOrderId { get; private set; }
-        
+
         /// <summary>
         /// 订单子项
         /// </summary>
@@ -400,7 +506,7 @@ namespace UUT.OrderCenter.PurchaseOrder.Domain.Root
         {
             if (BusinessState != OrderBusinessState.Draft)
                 throw new OperationException(new OperationError(null, "只允许删除草稿"));
-            
+
         }
 
         /// <summary>
@@ -411,7 +517,7 @@ namespace UUT.OrderCenter.PurchaseOrder.Domain.Root
             OrderState.SubmitModified();
             ValidateSubmitedOrder();
         }
-        
+
         /// <summary>
         /// 确认订单
         /// </summary>

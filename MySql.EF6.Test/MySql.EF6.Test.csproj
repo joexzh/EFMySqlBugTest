@@ -4,11 +4,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{DC93A3DD-F55A-4582-96DB-C0D53C107B3F}</ProjectGuid>
+    <ProjectGuid>{AF157AF0-6726-48D8-B360-9DEAE57B644E}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>UnitTestProject1</RootNamespace>
-    <AssemblyName>UnitTestProject1</AssemblyName>
+    <RootNamespace>MySql.EF6.Test</RootNamespace>
+    <AssemblyName>MySql.EF6.Test</AssemblyName>
     <TargetFrameworkVersion>v4.5.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <ProjectTypeGuids>{3AC096D0-A1C2-E12C-1390-A8335801FDAB};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
@@ -75,11 +75,11 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\PurchaseOrder\UUT.OrderCenter.PruchaseOrder.Infrastructure.Interface\UUT.OrderCenter.PurchaseOrder.Infrastructure.Interface.csproj">
-      <Project>{3129e586-2eec-4996-8c1a-0e209356e06b}</Project>
+      <Project>{3129E586-2EEC-4996-8C1A-0E209356E06B}</Project>
       <Name>UUT.OrderCenter.PurchaseOrder.Infrastructure.Interface</Name>
     </ProjectReference>
     <ProjectReference Include="..\PurchaseOrder\UUT.OrderCenter.PurchaseOrder.Domain\UUT.OrderCenter.PurchaseOrder.Domain.csproj">
-      <Project>{476021fd-0f9e-4c36-a5f5-0aed1fb17cbc}</Project>
+      <Project>{476021FD-0F9E-4C36-A5F5-0AED1FB17CBC}</Project>
       <Name>UUT.OrderCenter.PurchaseOrder.Domain</Name>
     </ProjectReference>
     <ProjectReference Include="..\PurchaseOrder\UUT.OrderCenter.PurchaseOrder.Infrastructure\UUT.OrderCenter.PurchaseOrder.Infrastructure.csproj">
@@ -91,7 +91,7 @@
       <Name>UUT.OrderCenter.PurchaseOrder.Repository.Interface</Name>
     </ProjectReference>
     <ProjectReference Include="..\PurchaseOrder\UUT.OrderCenter.PurchaseOrder.Repository\UUT.OrderCenter.PurchaseOrder.Repository.csproj">
-      <Project>{2261617d-6d47-4ced-9023-82e9eae35f00}</Project>
+      <Project>{2261617D-6D47-4CED-9023-82E9EAE35F00}</Project>
       <Name>UUT.OrderCenter.PurchaseOrder.Repository</Name>
     </ProjectReference>
   </ItemGroup>

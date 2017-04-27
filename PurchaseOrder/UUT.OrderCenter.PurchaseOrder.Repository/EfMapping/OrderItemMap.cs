@@ -15,8 +15,7 @@ namespace UUT.OrderCenter.PurchaseOrder.Repository.EfMapping
         {
             ToTable("Purchase_OrderItem");
             Ignore(p => p.TotalPrice);
-
-            //Property(p => p.Id).HasDatabaseGeneratedOption(DatabaseGeneratedOption.Identity);
+            
             HasKey(p => p.Id);
             Property(p => p.ProductType).IsRequired();
             Property(p => p.ProductName).IsRequired();

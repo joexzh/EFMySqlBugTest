@@ -57,6 +57,18 @@ namespace UUT.OrderCenter.PurchaseOrder.Domain.Root
         /// </summary>
         public User UserCreated { get; set; } = new User();
 
+#if EFCore
+        public long UserCreatedId { get => UserCreated.Id; set => UserCreated.Id = value; }
+
+        public string UserCreatedFullName { get => UserCreated.FullName; set => UserCreated.FullName = value; }
+
+        public string UserCreatedPhone { get => UserCreated.Phone; set => UserCreated.Phone = value; }
+
+        public long? UserCreatedAgencyId { get => UserCreated.AgencyId; set => UserCreated.AgencyId = value; }
+
+        public string UserCreatedAgencyName { get => UserCreated.AgencyName; set => UserCreated.AgencyName = value; }
+#endif
+
         /// <summary>
         /// 需求来源
         /// </summary>

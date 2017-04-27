@@ -134,6 +134,10 @@ namespace UUT.OrderCenter.PurchaseOrder.Domain.Root
             }
         }
 
+#if EFCore
+        public string UseDatesJson { get => UseDates.SerializedValue; set => UseDates.SerializedValue = value; }
+#endif
+
         /// <summary>
         /// 需求时间 - 开始
         /// </summary>

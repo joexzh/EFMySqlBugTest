@@ -1,18 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations.Schema;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 using UUT.OrderCenter.PurchaseOrder.Domain.Entity;
 
-namespace UUT.OrderCenter.PurchaseOrder.Repository.EfMapping
+namespace UUT.OrderCenter.PurchaseOrder.RepositoryCore.EfMapping
 {
-    public class TouristMap
+    internal class TouristMap
     {
-        public TouristMap(EntityTypeBuilder<Tourist> entityBuilder)
+        public static void SetConfig(EntityTypeBuilder<Tourist> entityBuilder)
         {
             entityBuilder.ToTable("Purchase_Order_Tourist");
             entityBuilder.HasKey(p => p.Id);

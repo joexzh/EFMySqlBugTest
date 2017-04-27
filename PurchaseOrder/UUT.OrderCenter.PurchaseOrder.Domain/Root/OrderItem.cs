@@ -10,6 +10,7 @@ using UUT.Component.Operation;
 using UUT.OrderCenter.PurchaseOrder.Domain.Entity;
 using UUT.OrderCenter.PurchaseOrder.Domain.ValueObject;
 using static UUT.OrderCenter.PurchaseOrder.Infrastructure.Config;
+using UUT.OrderCenter.PurchaseOrder.Domain.RelationTable;
 
 namespace UUT.OrderCenter.PurchaseOrder.Domain.Root
 {
@@ -127,6 +128,10 @@ namespace UUT.OrderCenter.PurchaseOrder.Domain.Root
         /// </summary>
         public UseDatesComplexType UseDates { get; set; } = new UseDatesComplexType();
 
+#if EFCore
+        public string UseDatesJson { get => UseDates.SerializedValue; set => UseDates.SerializedValue = value; }
+#endif
+
         /// <summary>
         /// 使用时间备注
         /// </summary>
@@ -173,6 +178,14 @@ namespace UUT.OrderCenter.PurchaseOrder.Domain.Root
         /// </summary>
         public PriceConcession PriceConcession { get; set; } = new PriceConcession();
 
+#if EFCore
+        public PriceConcessionType PriceConcessionType { get => PriceConcession.ConcessionType; set => PriceConcession.ConcessionType = value; }
+
+        public string PriceConcessionName { get => PriceConcession.ConcessionName; set => PriceConcession.ConcessionName = value; }
+
+        public decimal PriceConcessionNumber { get => PriceConcession.ConcessionNumber; set => PriceConcession.ConcessionNumber = value; }
+#endif
+
         /// <summary>
         /// 税率
         /// </summary>
@@ -201,6 +214,18 @@ namespace UUT.OrderCenter.PurchaseOrder.Domain.Root
         /// </summary>
         public User UserCreated { get; set; } = new User();
 
+#if EFCore
+        public long UserCreatedId { get => UserCreated.Id; set => UserCreated.Id = value; }
+
+        public string UserCreatedFullName { get => UserCreated.FullName; set => UserCreated.FullName = value; }
+
+        public string UserCreatedPhone { get => UserCreated.Phone; set => UserCreated.Phone = value; }
+
+        public long? UserCreatedAgencyId { get => UserCreated.AgencyId; set => UserCreated.AgencyId = value; }
+
+        public string UserCreatedAgencyName { get => UserCreated.AgencyName; set => UserCreated.AgencyName = value; }
+#endif
+
         public DateTime TimeCreated { get; private set; } = DateTime.Now;
         public long UserIdModified { get; set; }
         public DateTime TimeModified { get; private set; } = DateTime.Now;
@@ -214,6 +239,10 @@ namespace UUT.OrderCenter.PurchaseOrder.Domain.Root
         /// 游客名单, 新增订单时禁止使用, 否则报错
         /// </summary>
         public virtual ICollection<Tourist> Tourists { get; private set; } = new Collection<Tourist>();
+
+#if EFCore
+        public ICollection<OrderItemTourist> OrderItemTourists { get; set; } = new Collection<OrderItemTourist>();  
+#endif
 
         /// <summary>
         /// 增加游客

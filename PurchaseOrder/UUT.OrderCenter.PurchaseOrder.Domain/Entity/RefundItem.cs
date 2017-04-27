@@ -36,6 +36,7 @@ namespace UUT.OrderCenter.PurchaseOrder.Domain.Entity
         /// 订单项
         /// </summary>
         public virtual OrderItem OrderItem { get; set; }
+
         /// <summary>
         /// 退货数量
         /// </summary>
